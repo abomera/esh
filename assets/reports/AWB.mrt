@@ -1,0 +1,844 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<StiSerializer version="1.02" type="Net" application="StiReport">
+  <Dictionary Ref="1" type="Dictionary" isKey="true">
+    <BusinessObjects isList="true" count="0" />
+    <Databases isList="true" count="1">
+      <JSON Ref="2" type="Stimulsoft.Report.Dictionary.StiJsonDatabase" isKey="true">
+        <Alias>JSON</Alias>
+        <Key />
+        <Name>JSON</Name>
+        <PathData>E:\DATA Soft Plus\Dispatch\Web\MpsOnline3\assets\json\GetShipments.json</PathData>
+      </JSON>
+    </Databases>
+    <DataSources isList="true" count="2">
+      <Courier Ref="3" type="DataTableSource" isKey="true">
+        <Alias>Courier</Alias>
+        <Columns isList="true" count="16">
+          <value>EnglishName,System.String</value>
+          <value>ArabicName,System.String</value>
+          <value>EnglishAddress,System.String</value>
+          <value>ArabicAddress,System.String</value>
+          <value>Telephone1,System.Double</value>
+          <value>Telephone2,System.Double</value>
+          <value>Telephone3,System.String</value>
+          <value>Fax,System.String</value>
+          <value>Notes,System.Double</value>
+          <value>Red,System.Double</value>
+          <value>Green,System.Double</value>
+          <value>Blue,System.Double</value>
+          <value>Logo1,System.String</value>
+          <value>Logo2,System.String</value>
+          <value>WebSite,System.String</value>
+          <value>Email,System.String</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Name>Courier</Name>
+        <NameInSource>JSON.Courier</NameInSource>
+      </Courier>
+      <Shipments Ref="4" type="DataTableSource" isKey="true">
+        <Alias>Shipments</Alias>
+        <Columns isList="true" count="35">
+          <value>Serial,System.Double</value>
+          <value>SessionID,System.Double</value>
+          <value>UserID,System.Double</value>
+          <value>ClientID,System.Double</value>
+          <value>SubAccountID,System.Double</value>
+          <value>AWB,System.String</value>
+          <value>FromCityID,System.Double</value>
+          <value>FromAddress,System.String</value>
+          <value>FromPhone,System.String</value>
+          <value>FromContactPerson,System.String</value>
+          <value>ToCityID,System.Double</value>
+          <value>ToConsigneeName,System.String</value>
+          <value>ToAddress,System.String</value>
+          <value>ToPhone,System.String</value>
+          <value>ToMobile,System.String</value>
+          <value>ToRef,System.String</value>
+          <value>ToContactPerson,System.String</value>
+          <value>ProductID,System.Double</value>
+          <value>COD,System.Double</value>
+          <value>Weight,System.Double</value>
+          <value>Pieces,System.Double</value>
+          <value>Contents,System.String</value>
+          <value>SpecialInstuctions,System.String</value>
+          <value>Data1,System.String</value>
+          <value>Data2,System.String</value>
+          <value>Data3,System.String</value>
+          <value>Data4,System.String</value>
+          <value>FromCityName,System.String</value>
+          <value>ToCityName,System.String</value>
+          <value>TransDate,System.DateTime</value>
+          <value>ClientName,System.String</value>
+          <value>SubAccountName,System.String</value>
+          <value>ProductName,System.String</value>
+          <value>ClientAccNo,System.Double</value>
+          <value>SubAccountAccNo,System.Double</value>
+        </Columns>
+        <Dictionary isRef="1" />
+        <Name>Shipments</Name>
+        <NameInSource>JSON.Shipments</NameInSource>
+      </Shipments>
+    </DataSources>
+    <Relations isList="true" count="0" />
+    <Report isRef="0" />
+    <Resources isList="true" count="0" />
+    <Variables isList="true" count="0" />
+  </Dictionary>
+  <EngineVersion>EngineV2</EngineVersion>
+  <GlobalizationStrings isList="true" count="0" />
+  <MetaTags isList="true" count="0" />
+  <Pages isList="true" count="1">
+    <Page1 Ref="5" type="Page" isKey="true">
+      <Border>None;Black;2;Solid;False;4;Black</Border>
+      <Brush>Transparent</Brush>
+      <Components isList="true" count="5">
+        <LabelsDataBand Ref="6" type="DataBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <BusinessObjectGuid isNull="true" />
+          <ClientRectangle>0,0.4,21,9.8</ClientRectangle>
+          <Columns>1</Columns>
+          <ColumnWidth>21</ColumnWidth>
+          <Components isList="true" count="1">
+            <Label_Area Ref="7" type="Container" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,0.2,21,14</ClientRectangle>
+              <Components isList="true" count="48">
+                <BarCode1 Ref="8" type="Stimulsoft.Report.BarCodes.StiBarCode" isKey="true">
+                  <BackColor>Transparent</BackColor>
+                  <BarCodeType Ref="9" type="Stimulsoft.Report.BarCodes.StiCode128aBarCodeType" isKey="true" />
+                  <ClientRectangle>4.4,0.2,11.8,2</ClientRectangle>
+                  <Code>{Shipments.AWB}</Code>
+                  <Conditions isList="true" count="0" />
+                  <Font>Arial,8,Bold,Pixel</Font>
+                  <ForeColor>Black</ForeColor>
+                  <HorAlignment>Center</HorAlignment>
+                  <Name>BarCode1</Name>
+                  <Page isRef="5" />
+                  <Parent isRef="7" />
+                  <VertAlignment>Center</VertAlignment>
+                </BarCode1>
+                <BarCode2 Ref="10" type="Stimulsoft.Report.BarCodes.StiBarCode" isKey="true">
+                  <BackColor>Transparent</BackColor>
+                  <BarCodeType Ref="11" type="Stimulsoft.Report.BarCodes.StiQRCodeBarCodeType" isKey="true" />
+                  <ClientRectangle>17,0.4,3.2,2.2</ClientRectangle>
+                  <Code>{Shipments.AWB}</Code>
+                  <Conditions isList="true" count="0" />
+                  <Font>Arial,8,Bold,Pixel</Font>
+                  <ForeColor>Black</ForeColor>
+                  <HorAlignment>Center</HorAlignment>
+                  <Name>BarCode2</Name>
+                  <Page isRef="5" />
+                  <Parent isRef="7" />
+                  <VertAlignment>Center</VertAlignment>
+                </BarCode2>
+                <Image1 Ref="12" type="Image" isKey="true">
+                  <Brush>Transparent</Brush>
+                  <ClientRectangle>0.6,0.4,3.2,2</ClientRectangle>
+                  <Conditions isList="true" count="0" />
+                  <DataColumn>Courier.Logo1</DataColumn>
+                  <HorAlignment>Center</HorAlignment>
+                  <Margins>0,0,0,0</Margins>
+                  <Name>Image1</Name>
+                  <Page isRef="5" />
+                  <Parent isRef="7" />
+                  <Stretch>True</Stretch>
+                  <VertAlignment>Center</VertAlignment>
+                </Image1>
+                <Text1 Ref="13" type="Text" isKey="true">
+                  <Brush>Transparent</Brush>
+                  <ClientRectangle>4.4,2.2,11.8,0.6</ClientRectangle>
+                  <Conditions isList="true" count="0" />
+                  <Font>Arial,10</Font>
+                  <HorAlignment>Center</HorAlignment>
+                  <Margins>0,0,0,0</Margins>
+                  <Name>Text1</Name>
+                  <Page isRef="5" />
+                  <Parent isRef="7" />
+                  <Text>{Courier.WebSite}</Text>
+                  <TextBrush>Black</TextBrush>
+                  <Type>Expression</Type>
+                  <VertAlignment>Center</VertAlignment>
+                </Text1>
+                <Text2 Ref="14" type="Text" isKey="true">
+                  <Brush>Transparent</Brush>
+                  <ClientRectangle>0.4,5.2,3,0.8</ClientRectangle>
+                  <Conditions isList="true" count="0" />
+                  <Font>Arial,10</Font>
+                  <HorAlignment>Right</HorAlignment>
+                  <Margins>0,0,0,0</Margins>
+                  <Name>Text2</Name>
+                  <Page isRef="5" />
+                  <Parent isRef="7" />
+                  <Text>City :</Text>
+                  <TextBrush>Black</TextBrush>
+                  <Type>Expression</Type>
+                  <VertAlignment>Center</VertAlignment>
+                </Text2>
+                <Text4 Ref="15" type="Text" isKey="true">
+                  <Brush>Transparent</Brush>
+                  <ClientRectangle>0.4,6,3,0.8</ClientRectangle>
+                  <Conditions isList="true" count="0" />
+                  <Font>Arial,10</Font>
+                  <Guid>c71a5dc1ed2646f494ec9e0941f6ec72</Guid>
+                  <HorAlignment>Right</HorAlignment>
+                  <Margins>0,0,0,0</Margins>
+                  <Name>Text4</Name>
+                  <Page isRef="5" />
+                  <Parent isRef="7" />
+                  <Text>Address :</Text>
+                  <TextBrush>Black</TextBrush>
+                  <Type>Expression</Type>
+                  <VertAlignment>Center</VertAlignment>
+                </Text4>
+                <Text5 Ref="16" type="Text" isKey="true">
+                  <Brush>Transparent</Brush>
+                  <ClientRectangle>3.6,6,16.8,0.8</ClientRectangle>
+                  <Conditions isList="true" count="0" />
+                  <Font>Arial,10</Font>
+                  <Margins>0,0,0,0</Margins>
+                  <Name>Text5</Name>
+                  <Page isRef="5" />
+                  <Parent isRef="7" />
+                  <Text>{Shipments.ToAddress}</Text>
+                  <TextBrush>Black</TextBrush>
+                  <VertAlignment>Center</VertAlignment>
+                </Text5>
+                <Text3 Ref="17" type="Text" isKey="true">
+                  <Brush>Transparent</Brush>
+                  <ClientRectangle>3.6,5.2,5.2,0.8</ClientRectangle>
+                  <Conditions isList="true" count="0" />
+                  <Font>Arial,10</Font>
+                  <Margins>0,0,0,0</Margins>
+                  <Name>Text3</Name>
+                  <Page isRef="5" />
+                  <Parent isRef="7" />
+                  <Text>{Shipments.ToCityName}</Text>
+                  <TextBrush>Black</TextBrush>
+                  <VertAlignment>Center</VertAlignment>
+                </Text3>
+                <Text6 Ref="18" type="Text" isKey="true">
+                  <Brush>Transparent</Brush>
+                  <ClientRectangle>3.6,6.8,16.8,0.8</ClientRectangle>
+                  <Conditions isList="true" count="0" />
+                  <Font>Arial,10</Font>
+                  <Margins>0,0,0,0</Margins>
+                  <Name>Text6</Name>
+                  <Page isRef="5" />
+                  <Parent isRef="7" />
+                  <Text>{Shipments.ToConsigneeName}</Text>
+                  <TextBrush>Black</TextBrush>
+                  <VertAlignment>Center</VertAlignment>
+                </Text6>
+                <Text7 Ref="19" type="Text" isKey="true">
+                  <Brush>Transparent</Brush>
+                  <ClientRectangle>3.6,7.6,5.2,0.8</ClientRectangle>
+                  <Conditions isList="true" count="0" />
+                  <Font>Arial,10</Font>
+                  <Margins>0,0,0,0</Margins>
+                  <Name>Text7</Name>
+                  <Page isRef="5" />
+                  <Parent isRef="7" />
+                  <Text>{Shipments.ToPhone}</Text>
+                  <TextBrush>Black</TextBrush>
+                  <VertAlignment>Center</VertAlignment>
+                </Text7>
+                <Text8 Ref="20" type="Text" isKey="true">
+                  <Brush>Transparent</Brush>
+                  <ClientRectangle>8.8,7.6,4.6,0.8</ClientRectangle>
+                  <Conditions isList="true" count="0" />
+                  <Font>Arial,10</Font>
+                  <Margins>0,0,0,0</Margins>
+                  <Name>Text8</Name>
+                  <Page isRef="5" />
+                  <Parent isRef="7" />
+                  <Text>{Shipments.ToMobile}</Text>
+                  <TextBrush>Black</TextBrush>
+                  <Type>DataColumn</Type>
+                  <VertAlignment>Center</VertAlignment>
+                </Text8>
+                <Text9 Ref="21" type="Text" isKey="true">
+                  <Brush>Transparent</Brush>
+                  <ClientRectangle>14.2,5.2,6.2,0.8</ClientRectangle>
+                  <Conditions isList="true" count="0" />
+                  <Font>Arial,10</Font>
+                  <Margins>0,0,0,0</Margins>
+                  <Name>Text9</Name>
+                  <Page isRef="5" />
+                  <Parent isRef="7" />
+                  <Text>{Shipments.ToContactPerson}</Text>
+                  <TextBrush>Black</TextBrush>
+                  <VertAlignment>Center</VertAlignment>
+                </Text9>
+                <Text10 Ref="22" type="Text" isKey="true">
+                  <Brush>Transparent</Brush>
+                  <ClientRectangle>10,5.2,4,0.8</ClientRectangle>
+                  <Conditions isList="true" count="0" />
+                  <Font>Arial,10</Font>
+                  <Guid>44032c7428e44d6d8733855e1b074675</Guid>
+                  <HorAlignment>Right</HorAlignment>
+                  <Margins>0,0,0,0</Margins>
+                  <Name>Text10</Name>
+                  <Page isRef="5" />
+                  <Parent isRef="7" />
+                  <Text>Contact Person :</Text>
+                  <TextBrush>Black</TextBrush>
+                  <Type>Expression</Type>
+                  <VertAlignment>Center</VertAlignment>
+                </Text10>
+                <Text11 Ref="23" type="Text" isKey="true">
+                  <Brush>Transparent</Brush>
+                  <ClientRectangle>17.6,7.6,2.8,0.8</ClientRectangle>
+                  <Conditions isList="true" count="0" />
+                  <Font>Arial,10</Font>
+                  <Margins>0,0,0,0</Margins>
+                  <Name>Text11</Name>
+                  <Page isRef="5" />
+                  <Parent isRef="7" />
+                  <Text>{Shipments.ToRef}</Text>
+                  <TextBrush>Black</TextBrush>
+                  <VertAlignment>Center</VertAlignment>
+                </Text11>
+                <Text12 Ref="24" type="Text" isKey="true">
+                  <Brush>Transparent</Brush>
+                  <ClientRectangle>14.4,7.6,3,0.8</ClientRectangle>
+                  <Conditions isList="true" count="0" />
+                  <Font>Arial,10</Font>
+                  <Guid>f6e00d0c811245d2b11a543463ddf3a6</Guid>
+                  <HorAlignment>Right</HorAlignment>
+                  <Margins>0,0,0,0</Margins>
+                  <Name>Text12</Name>
+                  <Page isRef="5" />
+                  <Parent isRef="7" />
+                  <Text>Ref :</Text>
+                  <TextBrush>Black</TextBrush>
+                  <Type>Expression</Type>
+                  <VertAlignment>Center</VertAlignment>
+                </Text12>
+                <Text13 Ref="25" type="Text" isKey="true">
+                  <Brush>Transparent</Brush>
+                  <ClientRectangle>0.4,7.6,3,0.8</ClientRectangle>
+                  <Conditions isList="true" count="0" />
+                  <Font>Arial,10</Font>
+                  <Guid>a0a573689ffe46eab6eb35ee7437ec80</Guid>
+                  <HorAlignment>Right</HorAlignment>
+                  <Margins>0,0,0,0</Margins>
+                  <Name>Text13</Name>
+                  <Page isRef="5" />
+                  <Parent isRef="7" />
+                  <Text>Phone :</Text>
+                  <TextBrush>Black</TextBrush>
+                  <Type>Expression</Type>
+                  <VertAlignment>Center</VertAlignment>
+                </Text13>
+                <Text14 Ref="26" type="Text" isKey="true">
+                  <Brush>Transparent</Brush>
+                  <ClientRectangle>0.4,6.8,3,0.8</ClientRectangle>
+                  <Conditions isList="true" count="0" />
+                  <Font>Arial,10</Font>
+                  <Guid>1bd46c1ab2104789b7432a632447dec7</Guid>
+                  <HorAlignment>Right</HorAlignment>
+                  <Margins>0,0,0,0</Margins>
+                  <Name>Text14</Name>
+                  <Page isRef="5" />
+                  <Parent isRef="7" />
+                  <Text>Consignee :</Text>
+                  <TextBrush>Black</TextBrush>
+                  <Type>Expression</Type>
+                  <VertAlignment>Center</VertAlignment>
+                </Text14>
+                <Text15 Ref="27" type="Text" isKey="true">
+                  <Brush>Transparent</Brush>
+                  <ClientRectangle>3.6,9.2,2.2,0.8</ClientRectangle>
+                  <Conditions isList="true" count="0" />
+                  <Font>Arial,10</Font>
+                  <Margins>0,0,0,0</Margins>
+                  <Name>Text15</Name>
+                  <Page isRef="5" />
+                  <Parent isRef="7" />
+                  <Text>{Shipments.COD}</Text>
+                  <TextBrush>Black</TextBrush>
+                  <VertAlignment>Center</VertAlignment>
+                </Text15>
+                <Text16 Ref="28" type="Text" isKey="true">
+                  <Brush>Transparent</Brush>
+                  <ClientRectangle>10.6,9.2,2.8,0.8</ClientRectangle>
+                  <Conditions isList="true" count="0" />
+                  <Font>Arial,10</Font>
+                  <Margins>0,0,0,0</Margins>
+                  <Name>Text16</Name>
+                  <Page isRef="5" />
+                  <Parent isRef="7" />
+                  <Text>{Shipments.Weight}</Text>
+                  <TextBrush>Black</TextBrush>
+                  <VertAlignment>Center</VertAlignment>
+                </Text16>
+                <Text17 Ref="29" type="Text" isKey="true">
+                  <Brush>Transparent</Brush>
+                  <ClientRectangle>17.6,9.2,2.8,0.8</ClientRectangle>
+                  <Conditions isList="true" count="0" />
+                  <Font>Arial,10</Font>
+                  <Margins>0,0,0,0</Margins>
+                  <Name>Text17</Name>
+                  <Page isRef="5" />
+                  <Parent isRef="7" />
+                  <Text>{Shipments.Pieces}</Text>
+                  <TextBrush>Black</TextBrush>
+                  <VertAlignment>Center</VertAlignment>
+                </Text17>
+                <Text18 Ref="30" type="Text" isKey="true">
+                  <Brush>Transparent</Brush>
+                  <ClientRectangle>3.6,10,16.8,0.8</ClientRectangle>
+                  <Conditions isList="true" count="0" />
+                  <Font>Arial,10</Font>
+                  <Margins>0,0,0,0</Margins>
+                  <Name>Text18</Name>
+                  <Page isRef="5" />
+                  <Parent isRef="7" />
+                  <Text>{Shipments.Contents}</Text>
+                  <TextBrush>Black</TextBrush>
+                  <VertAlignment>Center</VertAlignment>
+                </Text18>
+                <Text19 Ref="31" type="Text" isKey="true">
+                  <Brush>Transparent</Brush>
+                  <ClientRectangle>3.6,10.8,16.8,0.8</ClientRectangle>
+                  <Conditions isList="true" count="0" />
+                  <Font>Arial,10</Font>
+                  <Margins>0,0,0,0</Margins>
+                  <Name>Text19</Name>
+                  <Page isRef="5" />
+                  <Parent isRef="7" />
+                  <Text>{Shipments.SpecialInstuctions}</Text>
+                  <TextBrush>Black</TextBrush>
+                  <VertAlignment>Center</VertAlignment>
+                </Text19>
+                <Text20 Ref="32" type="Text" isKey="true">
+                  <Brush>Transparent</Brush>
+                  <ClientRectangle>3.6,11.6,7.6,0.8</ClientRectangle>
+                  <Conditions isList="true" count="0" />
+                  <Font>Arial,10</Font>
+                  <Margins>0,0,0,0</Margins>
+                  <Name>Text20</Name>
+                  <Page isRef="5" />
+                  <Parent isRef="7" />
+                  <Text>{Shipments.Data1}</Text>
+                  <TextBrush>Black</TextBrush>
+                  <VertAlignment>Center</VertAlignment>
+                </Text20>
+                <Text21 Ref="33" type="Text" isKey="true">
+                  <Brush>Transparent</Brush>
+                  <ClientRectangle>11.4,11.6,9,0.8</ClientRectangle>
+                  <Conditions isList="true" count="0" />
+                  <Font>Arial,10</Font>
+                  <Margins>0,0,0,0</Margins>
+                  <Name>Text21</Name>
+                  <Page isRef="5" />
+                  <Parent isRef="7" />
+                  <Text>{Shipments.Data2}</Text>
+                  <TextBrush>Black</TextBrush>
+                  <VertAlignment>Center</VertAlignment>
+                </Text21>
+                <Text22 Ref="34" type="Text" isKey="true">
+                  <Brush>Transparent</Brush>
+                  <ClientRectangle>0.4,9.2,3,0.8</ClientRectangle>
+                  <Conditions isList="true" count="0" />
+                  <Font>Arial,10</Font>
+                  <Guid>cf8719bb516a4bf39a4e7f4c507966d7</Guid>
+                  <HorAlignment>Right</HorAlignment>
+                  <Margins>0,0,0,0</Margins>
+                  <Name>Text22</Name>
+                  <Page isRef="5" />
+                  <Parent isRef="7" />
+                  <Text>COD :</Text>
+                  <TextBrush>Black</TextBrush>
+                  <Type>Expression</Type>
+                  <VertAlignment>Center</VertAlignment>
+                </Text22>
+                <Text23 Ref="35" type="Text" isKey="true">
+                  <Brush>Transparent</Brush>
+                  <ClientRectangle>7.4,9.2,3,0.8</ClientRectangle>
+                  <Conditions isList="true" count="0" />
+                  <Font>Arial,10</Font>
+                  <Guid>d813d43293c6470ca56eb6d40275fdb0</Guid>
+                  <HorAlignment>Right</HorAlignment>
+                  <Margins>0,0,0,0</Margins>
+                  <Name>Text23</Name>
+                  <Page isRef="5" />
+                  <Parent isRef="7" />
+                  <Text>Weight :</Text>
+                  <TextBrush>Black</TextBrush>
+                  <Type>Expression</Type>
+                  <VertAlignment>Center</VertAlignment>
+                </Text23>
+                <Text24 Ref="36" type="Text" isKey="true">
+                  <Brush>Transparent</Brush>
+                  <ClientRectangle>14.4,9.2,3,0.8</ClientRectangle>
+                  <Conditions isList="true" count="0" />
+                  <Font>Arial,10</Font>
+                  <Guid>2a965d0062b64a139f330e9dd219c3ab</Guid>
+                  <HorAlignment>Right</HorAlignment>
+                  <Margins>0,0,0,0</Margins>
+                  <Name>Text24</Name>
+                  <Page isRef="5" />
+                  <Parent isRef="7" />
+                  <Text>Pieces :</Text>
+                  <TextBrush>Black</TextBrush>
+                  <Type>Expression</Type>
+                  <VertAlignment>Center</VertAlignment>
+                </Text24>
+                <Text25 Ref="37" type="Text" isKey="true">
+                  <Brush>Transparent</Brush>
+                  <ClientRectangle>0.4,10,3,0.8</ClientRectangle>
+                  <Conditions isList="true" count="0" />
+                  <Font>Arial,10</Font>
+                  <Guid>2cd11405ae3c4c28ad69c616d97de6e2</Guid>
+                  <HorAlignment>Right</HorAlignment>
+                  <Margins>0,0,0,0</Margins>
+                  <Name>Text25</Name>
+                  <Page isRef="5" />
+                  <Parent isRef="7" />
+                  <Text>Contents :</Text>
+                  <TextBrush>Black</TextBrush>
+                  <Type>Expression</Type>
+                  <VertAlignment>Center</VertAlignment>
+                </Text25>
+                <Text26 Ref="38" type="Text" isKey="true">
+                  <Brush>Transparent</Brush>
+                  <ClientRectangle>0.4,10.8,3,0.8</ClientRectangle>
+                  <Conditions isList="true" count="0" />
+                  <Font>Arial,10</Font>
+                  <Guid>cd87d2b34e6d492784a44dbb8b64b4de</Guid>
+                  <HorAlignment>Right</HorAlignment>
+                  <Margins>0,0,0,0</Margins>
+                  <Name>Text26</Name>
+                  <Page isRef="5" />
+                  <Parent isRef="7" />
+                  <Text>Instructions :</Text>
+                  <TextBrush>Black</TextBrush>
+                  <Type>Expression</Type>
+                  <VertAlignment>Center</VertAlignment>
+                </Text26>
+                <Text27 Ref="39" type="Text" isKey="true">
+                  <Brush>Transparent</Brush>
+                  <ClientRectangle>3.6,12.4,7.6,0.8</ClientRectangle>
+                  <Conditions isList="true" count="0" />
+                  <Font>Arial,10</Font>
+                  <Margins>0,0,0,0</Margins>
+                  <Name>Text27</Name>
+                  <Page isRef="5" />
+                  <Parent isRef="7" />
+                  <Text>{Shipments.Data3}</Text>
+                  <TextBrush>Black</TextBrush>
+                  <VertAlignment>Center</VertAlignment>
+                </Text27>
+                <Text28 Ref="40" type="Text" isKey="true">
+                  <Brush>Transparent</Brush>
+                  <ClientRectangle>11.4,12.4,9,0.8</ClientRectangle>
+                  <Conditions isList="true" count="0" />
+                  <Font>Arial,10</Font>
+                  <Margins>0,0,0,0</Margins>
+                  <Name>Text28</Name>
+                  <Page isRef="5" />
+                  <Parent isRef="7" />
+                  <Text>{Shipments.Data4}</Text>
+                  <TextBrush>Black</TextBrush>
+                  <VertAlignment>Center</VertAlignment>
+                </Text28>
+                <Text29 Ref="41" type="Text" isKey="true">
+                  <Brush>Transparent</Brush>
+                  <ClientRectangle>0.4,11.6,3,0.8</ClientRectangle>
+                  <Conditions isList="true" count="0" />
+                  <Font>Arial,10</Font>
+                  <Guid>4c7d6314ecad4e5cbcf0f15ffcddd1ba</Guid>
+                  <HorAlignment>Right</HorAlignment>
+                  <Margins>0,0,0,0</Margins>
+                  <Name>Text29</Name>
+                  <Page isRef="5" />
+                  <Parent isRef="7" />
+                  <Text>Data :</Text>
+                  <TextBrush>Black</TextBrush>
+                  <Type>Expression</Type>
+                  <VertAlignment>Center</VertAlignment>
+                </Text29>
+                <Text30 Ref="42" type="Text" isKey="true">
+                  <Brush>Transparent</Brush>
+                  <ClientRectangle>0.4,12.4,3,0.8</ClientRectangle>
+                  <Conditions isList="true" count="0" />
+                  <Font>Arial,10</Font>
+                  <Guid>eadd26dec9e248d692a55902ee7203c8</Guid>
+                  <HorAlignment>Right</HorAlignment>
+                  <Margins>0,0,0,0</Margins>
+                  <Name>Text30</Name>
+                  <Page isRef="5" />
+                  <Parent isRef="7" />
+                  <Text>Data :</Text>
+                  <TextBrush>Black</TextBrush>
+                  <Type>Expression</Type>
+                  <VertAlignment>Center</VertAlignment>
+                </Text30>
+                <Text31 Ref="43" type="Text" isKey="true">
+                  <Brush>Transparent</Brush>
+                  <ClientRectangle>6.4,3,6,0.8</ClientRectangle>
+                  <Conditions isList="true" count="0" />
+                  <Font>Arial,10</Font>
+                  <Margins>0,0,0,0</Margins>
+                  <Name>Text31</Name>
+                  <Page isRef="5" />
+                  <Parent isRef="7" />
+                  <Text>{Shipments.ClientName}</Text>
+                  <TextBrush>Black</TextBrush>
+                  <VertAlignment>Center</VertAlignment>
+                </Text31>
+                <Text32 Ref="44" type="Text" isKey="true">
+                  <Brush>Transparent</Brush>
+                  <ClientRectangle>3.6,3.8,8.8,0.8</ClientRectangle>
+                  <Conditions isList="true" count="0" />
+                  <Font>Arial,10</Font>
+                  <Margins>0,0,0,0</Margins>
+                  <Name>Text32</Name>
+                  <Page isRef="5" />
+                  <Parent isRef="7" />
+                  <Text>{Shipments.FromAddress}</Text>
+                  <TextBrush>Black</TextBrush>
+                  <Type>DataColumn</Type>
+                  <VertAlignment>Center</VertAlignment>
+                </Text32>
+                <Text33 Ref="45" type="Text" isKey="true">
+                  <Brush>Transparent</Brush>
+                  <ClientRectangle>3.6,3,2.6,0.8</ClientRectangle>
+                  <Conditions isList="true" count="0" />
+                  <Font>Arial,10</Font>
+                  <Margins>0,0,0,0</Margins>
+                  <Name>Text33</Name>
+                  <Page isRef="5" />
+                  <Parent isRef="7" />
+                  <Text>{Shipments.ClientAccNo}</Text>
+                  <TextBrush>Black</TextBrush>
+                  <VertAlignment>Center</VertAlignment>
+                </Text33>
+                <Text34 Ref="46" type="Text" isKey="true">
+                  <Brush>Transparent</Brush>
+                  <ClientRectangle>0.4,3,3,0.8</ClientRectangle>
+                  <Conditions isList="true" count="0" />
+                  <Font>Arial,10</Font>
+                  <Guid>9025368b232f4e5c970b4e78c511bb70</Guid>
+                  <HorAlignment>Right</HorAlignment>
+                  <Margins>0,0,0,0</Margins>
+                  <Name>Text34</Name>
+                  <Page isRef="5" />
+                  <Parent isRef="7" />
+                  <Text>Shipper :</Text>
+                  <TextBrush>Black</TextBrush>
+                  <Type>Expression</Type>
+                  <VertAlignment>Center</VertAlignment>
+                </Text34>
+                <Text35 Ref="47" type="Text" isKey="true">
+                  <Brush>Transparent</Brush>
+                  <ClientRectangle>0.4,3.8,3,0.8</ClientRectangle>
+                  <Conditions isList="true" count="0" />
+                  <Font>Arial,10</Font>
+                  <Guid>0f45179c8d8840ac8fca379374595181</Guid>
+                  <HorAlignment>Right</HorAlignment>
+                  <Margins>0,0,0,0</Margins>
+                  <Name>Text35</Name>
+                  <Page isRef="5" />
+                  <Parent isRef="7" />
+                  <Text>Address :</Text>
+                  <TextBrush>Black</TextBrush>
+                  <Type>Expression</Type>
+                  <VertAlignment>Center</VertAlignment>
+                </Text35>
+                <Text36 Ref="48" type="Text" isKey="true">
+                  <Brush>Transparent</Brush>
+                  <ClientRectangle>15.6,3,4.8,0.8</ClientRectangle>
+                  <Conditions isList="true" count="0" />
+                  <Font>Arial,10</Font>
+                  <Margins>0,0,0,0</Margins>
+                  <Name>Text36</Name>
+                  <Page isRef="5" />
+                  <Parent isRef="7" />
+                  <Text>{Shipments.ProductName}</Text>
+                  <TextBrush>Black</TextBrush>
+                  <VertAlignment>Center</VertAlignment>
+                </Text36>
+                <Text38 Ref="49" type="Text" isKey="true">
+                  <Brush>Transparent</Brush>
+                  <ClientRectangle>12.4,3,3,0.8</ClientRectangle>
+                  <Conditions isList="true" count="0" />
+                  <Font>Arial,10</Font>
+                  <Guid>fc7314f3ff484bcf894e11ec1e41346d</Guid>
+                  <HorAlignment>Right</HorAlignment>
+                  <Margins>0,0,0,0</Margins>
+                  <Name>Text38</Name>
+                  <Page isRef="5" />
+                  <Parent isRef="7" />
+                  <Text>Product :</Text>
+                  <TextBrush>Black</TextBrush>
+                  <Type>Expression</Type>
+                  <VertAlignment>Center</VertAlignment>
+                </Text38>
+                <StartPointPrimitive1 Ref="50" type="Stimulsoft.Report.Components.StiStartPointPrimitive" isKey="true">
+                  <ClientRectangle>0.2,0.2,0,0</ClientRectangle>
+                  <Name>StartPointPrimitive1</Name>
+                  <Page isRef="5" />
+                  <Parent isRef="7" />
+                  <ReferenceToGuid>6bc382b597584fc99d40056623d7d151</ReferenceToGuid>
+                </StartPointPrimitive1>
+                <EndPointPrimitive1 Ref="51" type="Stimulsoft.Report.Components.StiEndPointPrimitive" isKey="true">
+                  <ClientRectangle>20.6,2.8,0,0</ClientRectangle>
+                  <Name>EndPointPrimitive1</Name>
+                  <Page isRef="5" />
+                  <Parent isRef="7" />
+                  <ReferenceToGuid>6bc382b597584fc99d40056623d7d151</ReferenceToGuid>
+                </EndPointPrimitive1>
+                <StartPointPrimitive2 Ref="52" type="Stimulsoft.Report.Components.StiStartPointPrimitive" isKey="true">
+                  <ClientRectangle>0.2,5,0,0</ClientRectangle>
+                  <Name>StartPointPrimitive2</Name>
+                  <Page isRef="5" />
+                  <Parent isRef="7" />
+                  <ReferenceToGuid>9a079589f1034336b08afe4b2bbe0805</ReferenceToGuid>
+                </StartPointPrimitive2>
+                <EndPointPrimitive2 Ref="53" type="Stimulsoft.Report.Components.StiEndPointPrimitive" isKey="true">
+                  <ClientRectangle>20.6,8.6,0,0</ClientRectangle>
+                  <Name>EndPointPrimitive2</Name>
+                  <Page isRef="5" />
+                  <Parent isRef="7" />
+                  <ReferenceToGuid>9a079589f1034336b08afe4b2bbe0805</ReferenceToGuid>
+                </EndPointPrimitive2>
+                <StartPointPrimitive3 Ref="54" type="Stimulsoft.Report.Components.StiStartPointPrimitive" isKey="true">
+                  <ClientRectangle>0.2,9,0,0</ClientRectangle>
+                  <Name>StartPointPrimitive3</Name>
+                  <Page isRef="5" />
+                  <Parent isRef="7" />
+                  <ReferenceToGuid>0cd8a06dc6d14935ac624bb5e90f6ccd</ReferenceToGuid>
+                </StartPointPrimitive3>
+                <EndPointPrimitive3 Ref="55" type="Stimulsoft.Report.Components.StiEndPointPrimitive" isKey="true">
+                  <ClientRectangle>20.6,13.6,0,0</ClientRectangle>
+                  <Name>EndPointPrimitive3</Name>
+                  <Page isRef="5" />
+                  <Parent isRef="7" />
+                  <ReferenceToGuid>0cd8a06dc6d14935ac624bb5e90f6ccd</ReferenceToGuid>
+                </EndPointPrimitive3>
+                <StartPointPrimitive4 Ref="56" type="Stimulsoft.Report.Components.StiStartPointPrimitive" isKey="true">
+                  <ClientRectangle>0.2,3,0,0</ClientRectangle>
+                  <Name>StartPointPrimitive4</Name>
+                  <Page isRef="5" />
+                  <Parent isRef="7" />
+                  <ReferenceToGuid>3e1cd4b0accd4f7e86334db530d58dd2</ReferenceToGuid>
+                </StartPointPrimitive4>
+                <EndPointPrimitive4 Ref="57" type="Stimulsoft.Report.Components.StiEndPointPrimitive" isKey="true">
+                  <ClientRectangle>20.6,4.6,0,0</ClientRectangle>
+                  <Name>EndPointPrimitive4</Name>
+                  <Page isRef="5" />
+                  <Parent isRef="7" />
+                  <ReferenceToGuid>3e1cd4b0accd4f7e86334db530d58dd2</ReferenceToGuid>
+                </EndPointPrimitive4>
+              </Components>
+              <Conditions isList="true" count="0" />
+              <Name>Label_Area</Name>
+              <Page isRef="5" />
+              <Parent isRef="6" />
+            </Label_Area>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <DataRelationName isNull="true" />
+          <DataSourceName>Shipments</DataSourceName>
+          <Filters isList="true" count="0" />
+          <Name>LabelsDataBand</Name>
+          <Page isRef="5" />
+          <Parent isRef="5" />
+          <Sort isList="true" count="0" />
+        </LabelsDataBand>
+        <RectanglePrimitive1 Ref="58" type="RectanglePrimitive" isKey="true">
+          <ClientRectangle>0.2,0.8,20.4,2.6</ClientRectangle>
+          <Color>Black</Color>
+          <Guid>6bc382b597584fc99d40056623d7d151</Guid>
+          <Name>RectanglePrimitive1</Name>
+          <Page isRef="5" />
+          <Parent isRef="5" />
+        </RectanglePrimitive1>
+        <RectanglePrimitive2 Ref="59" type="RectanglePrimitive" isKey="true">
+          <ClientRectangle>0.2,5.6,20.4,3.6</ClientRectangle>
+          <Color>Black</Color>
+          <Guid>9a079589f1034336b08afe4b2bbe0805</Guid>
+          <Name>RectanglePrimitive2</Name>
+          <Page isRef="5" />
+          <Parent isRef="5" />
+        </RectanglePrimitive2>
+        <RectanglePrimitive3 Ref="60" type="RectanglePrimitive" isKey="true">
+          <ClientRectangle>0.2,9.6,20.4,4.6</ClientRectangle>
+          <Color>Black</Color>
+          <Guid>0cd8a06dc6d14935ac624bb5e90f6ccd</Guid>
+          <Name>RectanglePrimitive3</Name>
+          <Page isRef="5" />
+          <Parent isRef="5" />
+        </RectanglePrimitive3>
+        <RectanglePrimitive4 Ref="61" type="RectanglePrimitive" isKey="true">
+          <ClientRectangle>0.2,3.6,20.4,1.6</ClientRectangle>
+          <Color>Black</Color>
+          <Guid>3e1cd4b0accd4f7e86334db530d58dd2</Guid>
+          <Name>RectanglePrimitive4</Name>
+          <Page isRef="5" />
+          <Parent isRef="5" />
+        </RectanglePrimitive4>
+      </Components>
+      <Conditions isList="true" count="0" />
+      <Guid>2c5087c04c56445d84fab90818a8fc49</Guid>
+      <Margins>0,0,0,0</Margins>
+      <Name>Page1</Name>
+      <PageHeight>29.7</PageHeight>
+      <PageWidth>21</PageWidth>
+      <PaperSize>A4</PaperSize>
+      <Report isRef="0" />
+      <Watermark Ref="62" type="Stimulsoft.Report.Components.StiWatermark" isKey="true">
+        <Font>Arial,100</Font>
+        <TextBrush>[50:0:0:0]</TextBrush>
+      </Watermark>
+    </Page1>
+  </Pages>
+  <PrinterSettings Ref="63" type="Stimulsoft.Report.Print.StiPrinterSettings" isKey="true" />
+  <ReferencedAssemblies isList="true" count="8">
+    <value>System.Dll</value>
+    <value>System.Drawing.Dll</value>
+    <value>System.Windows.Forms.Dll</value>
+    <value>System.Data.Dll</value>
+    <value>System.Xml.Dll</value>
+    <value>Stimulsoft.Controls.Dll</value>
+    <value>Stimulsoft.Base.Dll</value>
+    <value>Stimulsoft.Report.Dll</value>
+  </ReferencedAssemblies>
+  <ReportAlias>Report</ReportAlias>
+  <ReportChanged>11/6/2018 3:17:03 PM</ReportChanged>
+  <ReportCreated>2/27/2018 6:49:52 AM</ReportCreated>
+  <ReportFile>E:\DATA Soft Plus\Dispatch\Web\MpsOnline3\assets\reports\AWB.mrt</ReportFile>
+  <ReportGuid>cf86f3093e0145f68d0ba63cce2803b9</ReportGuid>
+  <ReportImage isNull="true" />
+  <ReportName>Report</ReportName>
+  <ReportUnit>Centimeters</ReportUnit>
+  <ReportVersion>2018.1.4.0</ReportVersion>
+  <Script>using System;
+using System.Drawing;
+using System.Windows.Forms;
+using System.Data;
+using Stimulsoft.Controls;
+using Stimulsoft.Base.Drawing;
+using Stimulsoft.Report;
+using Stimulsoft.Report.Dialogs;
+using Stimulsoft.Report.Components;
+
+namespace Reports
+{
+    public class Report : Stimulsoft.Report.StiReport
+    {
+        public Report()        {
+            this.InitializeComponent();
+        }
+
+        #region StiReport Designer generated code - do not modify
+		#endregion StiReport Designer generated code - do not modify
+    }
+}
+</Script>
+  <ScriptLanguage>CSharp</ScriptLanguage>
+  <Styles isList="true" count="0" />
+</StiSerializer>

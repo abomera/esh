@@ -1,0 +1,63 @@
+﻿
+@{
+  ViewBag.Title = "ContactUS";
+  Layout = "~/Views/Shared/ClientsLayout.cshtml";
+}
+
+@section CSS
+{
+  <link href="~/assets/libs/bootstrap3/css/bootstrap-theme.min.css" rel="stylesheet" />
+}
+<section class="content-header">
+  <h1>
+    Clients
+    <small>Contact US</small>
+  </h1>
+  <ol class="breadcrumb">
+    <li><a href="@Url.Action("Index", "Clients")"><i class="fa fa-dashboard"></i>Clients</a></li>
+    <li class="active">Contact US</li>
+  </ol>
+</section>
+<section class="content">
+  <div id="errorMsg"></div>
+  <div class="box box-info">
+    <form id="ContactUS">
+      <div class="box-body">
+
+        <div class="form-group">
+
+          <label for="cmbTypes" class="text-danger">Type :  * </label>
+          <select id="cmbTypes" class="form-control" required="required">
+            <option value="1">Price Offer</option>
+            <option value="2" selected="selected">Suggestion</option>
+            <option value="3">Complaint</option>
+            <option value="4">Other</option>
+          </select>
+
+        </div>
+
+        <div class="form-group">
+          <label for="txtSubject" class="text-danger">Subject: *</label>
+          <input type="text" class="form-control" id="txtSubject" placeholder="Enter subject" />
+        </div>
+
+        <div class="form-group">
+          <label for="txtMessage" class="text-danger">Message: *</label>
+          <textarea rows="6" class="form-control" id="txtMessage" placeholder="Enter you message"></textarea>
+        </div>
+      </div>
+      <div class="box-footer">
+        <button type="button" class="btn btn-primary" onclick="SubmitContactUS()">Submit</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+@section Scripts
+{
+  <!-- Page Scripts -->
+  <script src="~/assets/libs/bootstrap-validator/validator.min.js"></script>
+
+  <script src="~/assets/js/ClientUsers/ContactUS.js"></script>
+}
+

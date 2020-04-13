@@ -1,0 +1,65 @@
+﻿
+@{
+  ViewBag.Title = "Upload Excel";
+  Layout = "~/Views/Shared/ClientsLayout.cshtml";
+}
+@section CSS
+{
+  <link href="~/assets/libs/bootstrap3/css/bootstrap-theme.min.css" rel="stylesheet" />
+  <link href="~/assets/libs/datatables_bootstrap3/datatables.min.css" rel="stylesheet" />
+}
+
+<section class="content-header">
+  <h1>
+    Clients
+    <small>Upload Excel</small>
+  </h1>
+  <ol class="breadcrumb">
+    <li><a href="@Url.Action("Index", "Clients")"><i class="fa fa-dashboard"></i>Clients</a></li>
+    <li class="active">Upload Excel</li>
+  </ol>
+</section>
+<section class="content">
+  <div class="box-body">
+    <h3>
+      You can download excel template from next link
+      <br />
+      <a class="text-primary" href="../assets/uploads/ManualAWB.xlsx">Download Template</a>
+    </h3>
+
+    <button class="btn btn-default btn-icon-anim btn-rounded" onclick="ShowUploadModal()" title="Upload Excel File"><i class="icon-paper-clip"></i>Upload Excel File</button>
+
+    <div id="mdlUploadExcel" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h5 class="modal-title text-center">Upload shipments file</h5>
+          </div>
+          <div class="modal-body">
+            <input type="file" id="fileShipments" name="name" value="" accept=".xlsx, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" />
+            <br />
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary" id="btnUploadExcelFile">Submit</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <br />
+    <br />
+
+    <div class="">
+      <table id="example" class="display table table-bordered table-striped table-hover"></table>
+    </div>
+
+  </div>
+</section>
+@section Scripts
+{
+  <!-- Page Scripts -->
+  <script src="~/assets/libs/datatables_bootstrap3/datatables.min.js"></script>
+  <script src="~/assets/js/ClientUsers/UploadExcel.js"></script>
+}

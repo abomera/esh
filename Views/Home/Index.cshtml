@@ -1,0 +1,53 @@
+﻿
+@{
+  ViewBag.Title = "Index";
+  Layout = "~/Views/Shared/MainLayout.cshtml";
+}
+
+<section class="content">
+  <div class="row">
+
+    <div class="col-lg-6 col-xs-12">
+      <div class="box info-box">
+        <div class="box-header">
+
+          <i class="fa fa-building"></i>
+
+          <h3 class="box-title">
+            Clients Login
+          </h3>
+        </div>
+        <div class="box-body">
+          <a href="@Url.Action("Index", "Clients")">
+            <div id="ClientLogin" class="icon"  style="position: relative; height: 300px;">
+              <img src="~/assets/img/corporate.jpg" class="user-image" alt="User Image" style="height: 100%; width:100%">
+            </div>
+          </a>
+        </div>
+        <!-- /.box-body-->
+
+      </div>
+    </div>
+    <div class="col-lg-6 col-xs-12">
+      <div class="box info-box">
+        <div class="box-header">
+
+          <i class="fa fa-user"></i>
+
+          <h3 class="box-title">
+            User Login
+          </h3>
+        </div>
+        <div class="box-body">
+          <a href="@Url.Action("Index", "Home")">
+            <div id="ClientLogin" class="icon" style="position: relative; height: 300px;">
+              <img src="~/assets/img/computer-user.jpg" class="user-image" alt="User Image" style="height: 100%; width:100%">
+            </div>
+          </a>
+        </div>
+        <!-- /.box-body-->
+
+      </div>
+    </div>
+  </div>
+</section>

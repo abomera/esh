@@ -1,0 +1,176 @@
+﻿
+@{
+        /**/
+
+        ViewBag.Title = "Print Shipments";
+        Layout = "~/Views/Shared/ClientsLayout.cshtml";
+}
+
+@section CSS
+{
+  <!-- DataTables -->
+  <link href="~/assets/libs/datatables_bootstrap3/datatables.min.css" rel="stylesheet" />
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />}
+
+<!--Crumb Bar-->
+<section class="content-header">
+  <h1>
+    Clients
+    <small>Shipments Inquiry</small>
+  </h1>
+  <ol class="breadcrumb">
+    <li><a href="@Url.Action("Index", "Clients")"><i class="fa fa-dashboard"></i>Clients</a></li>
+    <li class="active">Shipments Inquiry</li>
+  </ol>
+</section>
+
+<section class="content">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="box info">
+        <div class="box-header">
+          <h3 class="box-title">Print Shipments</h3>
+        </div>
+        <!-- /.box-header -->
+        <div id="dvTable" class="box-body">
+          <!-- radio -->
+          <div class="form-group">
+            <div class="col-xs-1">
+              <label>Pickup No.</label>
+            </div>
+            @*<input type="number" id="txtPickupNo" class="col-xs-11" placeholder="Enter Pickup No" />*@
+            <textarea id="txtPickupNo" class="col-xs-11" placeholder="Enter Pickup No"></textarea>
+          </div>
+
+
+          <div class="form-group">
+            <div class="col-xs-1">
+              <label>AWBs</label>
+            </div>
+            <textarea id="txtAWBs" class="col-xs-11" placeholder="Enter AWBs separated by comma or copy from excel"></textarea>
+          </div>
+          <div class="form-group">
+            <div class="col-xs-1">
+              <label>REFs</label>
+            </div>
+            <textarea id="txtREFs" class="col-xs-11" placeholder="Enter customer REFs separated by comma or copy from excel"></textarea>
+
+          </div>
+
+          <div class="form-group">
+            <label class="col-xs-1">Pickup Date</label>
+            <div id="rngPickupDate" class="col-xs-11" style="background: #fff; cursor: pointer; padding: 10px 10px;">
+              <i class="fa fa-calendar"></i>&nbsp;
+              <span></span> <i class="fa fa-caret-down"></i>
+            </div>
+          </div>
+
+
+          <div class="form-group">
+            <div class="col-xs-3">
+              <input class="btn btn-success" type="button" id="btnCurrentUser" value="Search" onclick="GetShimpmentInfos()">
+            </div>
+
+            <div class="col-xs-3">
+              <input style="visibility:hidden" class="btn btn-success" type="button" id="btnPrint1" value="Print" onclick="PrintShipments()">
+            </div>
+          </div>
+
+
+          <div class="">
+            <table id="example" class="display table table-bordered table-striped table-hover"></table>
+          </div>
+          <div class="form-group">
+            <div class="col-xs-3">
+              <input style="visibility:hidden" class="btn btn-success" type="button" id="btnPrint2" value="Print" onclick="PrintShipments()">
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <table id="example1" style="width:100%" class="display table table-bordered table-striped table-hover"></table>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="ModalPOD" tabindex="-1" role="dialog" aria-labelledby="ModalPODLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="ModalPODLabel">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <img id="imgPOD" src="" style="width:90%;height:90%" />
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+
+@section Scripts
+{
+  <!-- Page Scripts -->
+  <script src="~/assets/libs/datatables_bootstrap3/datatables.min.js"></script>
+  <script src="~/assets/js/ClientUsers/PrintShipments.js"></script>
+  <script src="~/assets/libs/stimulsoft/stimulsoft.reports.js"></script>
+
+  @*<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>*@
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+ 
+
+  <script type="text/javascript">
+    $(function () {
+
+      var start = moment().subtract(29, 'days');
+      var end = moment();
+
+      function cb(start, end) {
+        $('#rngPickupDate span').html(start.format('YYYY-MM-DD') + ' - ' + end.format('YYYY-MM-DD'));
+      }
+
+      $('#rngPickupDate').daterangepicker({
+        showDropdowns: true,
+        startDate: start,
+        endDate: end,
+        ranges: {
+          'Today': [moment(), moment()],
+          'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+          'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+          'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+          'This Month': [moment().startOf('month'), moment().endOf('month')],
+          'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+        }
+      }, cb);
+
+      cb(start, end);
+
+    });
+  </script>
+}
+

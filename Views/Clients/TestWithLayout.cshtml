@@ -1,0 +1,24 @@
+﻿
+@{
+    ViewBag.Title = "TestWithLayout";
+    Layout = "~/Views/Shared/ClientsLayout.cshtml";
+}
+
+<input type="text" id="datepicker">
+
+<!-- jQuery 3 -->
+<script src="../../bower_components/jquery/dist/jquery.min.js"></script>
+<!-- Bootstrap 3.3.7 -->
+<script src="../../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- bootstrap datepicker -->
+<script src="../../bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+<!-- Page script -->
+<script>
+    $(function () {
+
+      //Date picker
+      $('#datepicker').datepicker({
+        autoclose: true
+      })
+    })
+</script>

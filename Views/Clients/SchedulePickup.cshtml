@@ -1,0 +1,199 @@
+﻿
+@{
+  ViewBag.Title = "Schedule Pickup";
+  Layout = "~/Views/Shared/ClientsLayout.cshtml";
+}
+
+@section CSS
+{
+  <!-- Page CSS Rel-->
+  <!-- Select2 -->
+<link href="~/assets/libs/select2/css/select2.min.css" rel="stylesheet" />
+
+  <!-- bootstrap datepicker -->
+<link href="~/assets/libs/bootstrap-datepicker/css/bootstrap-datepicker.min.css" rel="stylesheet" />
+
+}
+
+<script>
+  var GetNextDayDate = function () {
+    var currentDate = new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
+    var day = currentDate.getDate()
+    if (day < 10) {
+      day = '0' + day;
+    }
+    var month = currentDate.getMonth() + 1
+    var year = currentDate.getFullYear()
+    return year + '-' + month + '-' + day;
+
+  }
+</script>
+
+
+<!--Crumb Bar-->
+<section class="content-header">
+  <h1>
+    Clients
+    <small>Schedule Pickup</small>
+  </h1>
+  <ol class="breadcrumb">
+    <li><a href="@Url.Action("Index", "Clients")"><i class="fa fa-dashboard"></i>Clients</a></li>
+    <li class="active">Schedule Pickup</li>
+  </ol>
+</section>
+
+<section class="content">
+  <div class="box box-info">
+    <div class="box-header">
+      <h3 class="box-title">Schedule Pickup</h3>
+    </div>
+    <form id="PickupForm">
+
+      <div class="box-body">
+        <!-- Number of AWBs -->
+        <div class="form-group">
+
+          <label for="NumberOfAWBs" class="col-sm-2">Number of AWBs:</label>
+
+          <div class="input-group col-sm-10">
+            <div class="input-group-addon">
+              <i class="fa fa-sort-numeric-asc fa-fw"></i>
+            </div>
+            <input required type="text" class="form-control" data-inputmask="'alias': 'integer', 'rightAlign':false" data-mask id="NumberOfAWBs">
+          </div>
+          <!-- /.input group -->
+        </div>
+        <!-- /.form group -->
+        <!-- Pickup Address -->
+        <div class="form-group">
+
+          <label for="PickupAddress" class="col-sm-2">Pickup Address:</label>
+
+          <div class="input-group col-sm-10">
+            <div class="input-group-addon">
+              <i class="fa fa-map-marker fa-fw"></i>
+            </div>
+            <input required type="text" class="form-control" id="PickupAddress">
+          </div>
+          <!-- /.input group -->
+        </div>
+        <!-- /.form group -->
+        <!-- Phone: -->
+        <div class="form-group">
+
+          <label for="Phone" class="col-sm-2">Phone:</label>
+
+          <div class="input-group col-sm-10">
+            <div class="input-group-addon">
+              <i class="fa fa-phone fa-fw"></i>
+            </div>
+            <input required type="text" class="form-control" id="Phone">
+          </div>
+          <!-- /.input group -->
+        </div>
+        <!-- /.form group -->
+        <!-- Contact Person -->
+        <div class="form-group">
+
+          <label for="ContactPerson" class="col-sm-2">Contact Person:</label>
+
+          <div class="input-group col-sm-10">
+            <div class="input-group-addon">
+              <i class="fa fa-id-card-o fa-fw"></i>
+            </div>
+            <input required type="text" class="form-control" id="ContactPerson">
+          </div>
+          <!-- /.input group -->
+        </div>
+        <!-- /.form group -->
+        <!-- Pickup Date -->
+        <div class="form-group">
+
+          <label for="PickupDate" class="col-sm-2">Pickup Date:</label>
+
+          <div class="input-group col-sm-10">
+            <div class="input-group date">
+              <div class="input-group-addon date">
+                <i class="fa fa-calendar fa-fw"></i>
+              </div>
+              <input required type="text" class="form-control" id="PickupDate" readonly>
+              <script>
+                document.getElementById('PickupDate').setAttribute('value', GetNextDayDate());
+              </script>
+            </div>
+          </div>
+          <!-- /.input group -->
+        </div>
+        <!-- /.form group -->
+        <!-- ProductID -->
+        <div class="form-group">
+
+          <label for="ProductID" class="col-sm-2">Product:</label>
+
+          <div class="input-group col-sm-10">
+            <div class="input-group-addon">
+              <i class="fa fa-product-hunt fa-fw"></i>
+            </div>
+            <select required class="form-control select2" style="width: 100%;" id="ProductID"></select>
+
+          </div>
+          <!-- /.input group -->
+        </div>
+        <!-- /.form group -->
+        <!-- CityID -->
+        <div class="form-group">
+
+          <label for="CityID" class="col-sm-2">City:</label>
+
+          <div class="input-group col-sm-10">
+            <div class="input-group-addon">
+              <i class="fa fa-location-arrow fa-fw"></i>
+            </div>
+            <select required class="form-control select2" style="width: 100%;" id="CityID"></select>
+          </div>
+          <!-- /.input group -->
+        </div>
+        <!-- /.form group -->
+        <!-- Notes -->
+        <div class="form-group">
+
+          <label for="Notes" class="col-sm-2">Notes:</label>
+
+          <div class="input-group col-sm-10">
+            <div class="input-group-addon">
+              <i class="fa fa-sticky-note-o fa-fw"></i>
+            </div>
+            <input type="text" class="form-control" id="Notes">
+          </div>
+          <!-- /.input group -->
+        </div>
+        <!-- /.form group -->
+      </div>
+      <div class="box-footer">
+        <button type="button" class="btn btn-default" onclick="window.location.href = @Url.Action("Index", "Clients");">Cancel</button>
+        <button type="submit" class="btn btn-info pull-right">Save Pickup</button>
+      </div>
+      <div><span class="hidden" id="errorMsg" style="color:firebrick; font-weight:bold;"></span></div>
+
+      <!-- /.box-footer -->
+      <!-- /.box-body -->
+    </form>
+  </div>
+</section>
+
+
+@section Scripts
+{
+  <!-- Page Scripts -->
+  <!-- InputMask -->
+<script src="~/assets/libs/input-mask/jquery.inputmask.bundle.min.js"></script>
+  <!-- Select2 -->
+<script src="~/assets/libs/select2/js/select2.full.min.js"></script>
+<script src="~/assets/libs/moment/moment.min.js"></script>
+  <!-- bootstrap datepicker -->
+<script src="~/assets/libs/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+<script src="~/assets/js/ClientUsers/SchedulePickup.js"></script>
+}
+
+
+

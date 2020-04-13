@@ -1,0 +1,525 @@
+﻿<!doctype html>
+<html class="no-js " lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <meta name="description" content="Responsive Bootstrap 4 and web Application ui kit.">
+
+    <title>:: MPS :: Tracking ::</title>
+    <!-- Favicon-->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
+    <!-- Custom Css -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/plugins/jquery-toast-plugin/src/jquery.toast.css">
+    <link rel="stylesheet" href="assets/plugins/jquery-datatable/dataTables.bootstrap4.min.css">
+     <!--<link href="assets/plugins/bootstrap-select/css/bootstrap-select.min.css" rel="stylesheet" />-->
+
+    <link rel="stylesheet" href="assets/css/color_skins.css">
+    <style>
+        .table td, .table th {
+            padding: 0.5rem !important
+        }
+	.badge{
+		white-space: pre-wrap !important;
+font-weight: 550 !important;
+font-size: 13px !important;
+}
+        td.details-control {
+            background: url('https://datatables.net/examples/resources/details_open.png') no-repeat center center;
+            cursor: pointer;
+        }
+
+        tr.shown td.details-control {
+            background: url('https://datatables.net/examples/resources/details_close.png') no-repeat center center;
+        }
+    </style>
+</head>
+<body class="theme-purple">
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Change Password</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <input type="password" name="" id="currentpassword" class="form-control mt-2" value="" placeholder="Old Password" />
+          <input type="password" name="" id="pwd1" class="form-control mt-2" value="" placeholder="New Password" />
+          <input type="password" name="" id="pwd2" class="form-control mt-2" value="" placeholder="Confirm Password" />
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" onclick="ChangePassword()">Save</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <!-- Page Loader -->
+  <div class="page-loader-wrapper">
+    <div class="loader">
+      <div class="m-t-30">Mr Ahmed Aglan Tell you.</div>
+      <p>Please wait...</p>
+    </div>
+  </div>
+
+  <!-- Overlay For Sidebars -->
+  <div class="overlay"></div>
+
+  <!-- Top Bar -->
+  <nav class="navbar p-l-5 p-r-5">
+    <ul class="nav navbar-nav navbar-left">
+      <li>
+        <div class="navbar-header">
+          <a href="javascript:void(0);" class="bars"></a>
+          <a class="navbar-brand" href="index.html"><span class="m-l-10"><img src="assets/images/logo.png" width="70" alt="MPS Egypt"></span></a>
+        </div>
+      </li>
+      <li>  <span id="errMsgSrc"></span></li>
+      <li class="w-50">
+
+        <div class="input-group">
+
+          <input type="text" id="refNo" class="form-control" autocomplete="off" placeholder="REF or Shipment No.">
+
+          <span class="input-group-addon">
+            <a href="#" id="Search">
+              <i class="zmdi zmdi-search"></i>
+            </a>
+          </span>
+
+
+
+
+        </div>
+        <!--<div class="row">
+            <div class="col-">
+
+            </div>
+
+            <div class="row clearfix">
+                <div class="col-lg-9">
+                    <div class="input-group mb-0">
+                        <input type="text">
+                        <span class="input-group-addon">
+                            <i class="zmdi zmdi-search"></i>
+                        </span>
+
+                    </div>
+                </div>
+
+                <div class="col-lg-3 m-t--5">
+
+                    <button type="button" class="btn btn-raised btn-primary btn-round waves-effect m-l-20">Search</button>
+                </div>
+            </div>
+        </div>-->
+      </li>
+      <li><a href="javascript:void(0);" class="ls-toggle-btn hidden-xs-up" id="tgle" data-close="false"><i class="zmdi zmdi-swap"></i></a></li>
+
+      <li class="float-right">
+        <a id="UserName"></a>
+        <button type="button" data-toggle="modal" data-target="#exampleModal">Change Password</button>
+        <a href="/MpsOnline/Clients/Login" class="mega-menu" data-close="true"> Logout  <i class="zmdi zmdi-power"></i> </a>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Left Sidebar -->
+  <aside id="leftsidebar" class="sidebar">
+    <ul class="nav nav-tabs">
+      <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#dashboard"><i class="zmdi zmdi-home m-r-5"></i>Oreo</a></li>
+      <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#user"><i class="zmdi zmdi-account m-r-5"></i>User</a></li>
+    </ul>
+    <div class="tab-content">
+      <div class="tab-pane stretchRight active" id="dashboard">
+        <div class="menu">
+          <ul class="list">
+            <li class="header">MAIN</li>
+            <li>
+              <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-home"></i><span>Dashboard</span></a>
+              <ul class="ml-menu">
+                <li><a href="#">Main</a> </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+
+  <!-- Main Content -->
+  <section class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <div class="card mt-1">
+            <div class="row clearfix">
+              <div class="col-md-12 col-lg-12">
+                <div class="panel-group" id="accordion_1" role="tablist" aria-multiselectable="true">
+                  <div class="panel panel-primary">
+                    <div class="panel-heading" role="tab" id="headingOne_1">
+                      <h4 class="panel-title p-0">
+                        <a role="button" data-toggle="collapse" data-parent="#accordion_1" href="#collapseOne_0" aria-expanded="true" aria-controls="collapseOne_1" class="">
+                          <div class="header  p-0 pl-2">
+                            <h2><strong>Shipment Data</strong></h2>
+                          </div>
+                        </a>
+                      </h4>
+                    </div>
+                    <div id="collapseOne_0" class="panel-collapse in active show" role="tabpanel" aria-labelledby="headingOne_1" aria-expanded="true" style="">
+                      <div class="panel-body">
+                        <div class="card">
+                          <div class="body pt-0">
+                            <div class="body pt-0">
+
+                              <div class="right_chat list-unstyled">
+                                <div class="row">
+                                  <div class="online col-lg-2">
+                                    <div class="media">
+                                      <div class="media-body">
+                                        <span class="names">Shipment No.: </span>
+                                        <span id="shpmntNo" class="badge badge-info"></span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="col-lg-2">
+                                    <div class="media">
+                                      <div class="media-body">
+                                        <span class="names">IDNO: </span>
+                                        <span id="IDNO" class="badge badge-info"></span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="col-lg-2">
+                                    <div class="media">
+                                      <div class="media-body">
+                                        <span class="names">Consimage: </span>
+                                        <span id="Consimage" class="badge badge-info"></span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="col-lg-2">
+                                    <div class="media">
+                                      <div class="media-body">
+                                        <span class="names">Contents: </span>
+                                        <span id="Contents" class="badge badge-info"></span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="col-lg-2">
+                                    <div class="media">
+                                      <div class="media-body">
+                                        <span class="names">FromCity: </span>
+                                        <span id="FromCity" class="badge badge-info"></span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="col-lg-2">
+                                    <div class="media">
+                                      <div class="media-body">
+                                        <span class="names">ToCity: </span>
+                                        <span id="ToCity" class="badge badge-info"></span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="col-lg-2">
+                                    <div class="media">
+                                      <div class="media-body">
+                                        <span class="names">Product: </span>
+                                        <span id="Product" class="badge badge-info"></span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="col-lg-2">
+                                    <div class="media">
+                                      <div class="media-body">
+                                        <span class="names">Reason: </span>
+                                        <span id="Reason" class="badge badge-info"></span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="col-lg-2">
+                                    <div class="media">
+                                      <div class="media-body">
+                                        <span class="names">Recipient: </span>
+                                        <span id="Recipient" class="badge badge-info"></span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="col-lg-2">
+                                    <div class="media">
+                                      <div class="media-body">
+                                        <span class="names">Recipient Name: </span>
+                                        <span id="RecipientName" class="badge badge-info"></span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="col-lg-2">
+                                    <div class="media">
+                                      <div class="media-body">
+                                        <span class="names">Weight: </span>
+                                        <span id="Weight" class="badge badge-info"></span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="col-lg-2">
+                                    <div class="media">
+                                      <div class="media-body">
+                                        <span class="names">Pickup Date: </span>
+                                        <span id="pckDate" class="badge badge-info"></span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="col-lg-2">
+                                    <div class="media">
+                                      <div class="media-body">
+                                        <span class="names">Address: </span>
+                                        <span id="Address" class="badge badge-info"></span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="col-lg-2">
+                                    <div class="media">
+                                      <div class="media-body">
+                                        <span class="names">Phones: </span>
+                                        <span id="Phoness" class="badge badge-info"></span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="col-lg-2">
+                                    <div class="media">
+                                      <div class="media-body">
+                                        <span class="names">Data1: </span>
+                                        <span id="Data1" class="badge badge-info"></span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="col-lg-2">
+                                    <div class="media">
+                                      <div class="media-body">
+                                        <span class="names">Data2: </span>
+                                        <span id="Data2" class="badge badge-info"></span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="col-lg-2">
+                                    <div class="media">
+                                      <div class="media-body">
+                                        <span class="names">Data3: </span>
+                                        <span id="Data3" class="badge badge-info"></span>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="col-lg-2">
+                                    <div class="media">
+                                      <div class="media-body">
+                                        <span class="names">Data4: </span>
+                                        <span id="Data4" class="badge badge-info"></span>
+                                      </div>
+                                    </div>
+                                  </div>
+
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="panel panel-primary">
+                    <div class="panel-heading" role="tab" id="headingOne_1">
+                      <h4 class="panel-title p-0">
+                        <a role="button" data-toggle="collapse" data-parent="#accordion_1" href="#collapseOne_1" aria-expanded="true" aria-controls="collapseOne_1" class="">
+                          <div class="header p-0 pl-2">
+                            <h2><strong>Complaints</strong></h2>
+                          </div>
+                        </a>
+                      </h4>
+                    </div>
+                    <div id="collapseOne_1" class="panel-collapse in active show" role="tabpanel" aria-labelledby="headingOne_1" aria-expanded="true" style="">
+                      <div class="panel-body">
+
+                        <div class="card">
+
+                          <div class="body pt-0">
+                            <div class="table-responsive">
+                              <table class="table table-hover table-striped" id="complainTble">
+                                <thead>
+                                  <tr>
+                                    <th></th>
+                                    <th class="hidden-sm-up">ID</th>
+                                    <th>ComplaintType</th>
+                                    <th>ComplaintStatus</th>
+                                    <th>ComplaintSubject</th>
+                                    <th>CompplaintDetails</th>
+                                    <th>LastAction</th>
+                                    <th>IsClosed</th>
+                                    <th>ComplaintDate</th>
+                                    <th>ClientUser</th>
+                                    <th>Ref</th>
+                                    <th class="hidden-sm-up">#</th>
+                                  </tr>
+                                </thead>
+                                <tbody></tbody>
+                              </table>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="panel panel-primary">
+                    <div class="panel-heading" role="tab" id="headingTwo_1">
+                      <h4 class="panel-title">
+                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion_1" href="#collapseTwo_1" aria-expanded="false" aria-controls="collapseTwo_1">
+                          <div class="header p-0 pl-2">
+                            <h2><strong>Customer Support</strong></h2>
+                          </div>
+
+                        </a>
+                      </h4>
+                    </div>
+                    <div id="collapseTwo_1" class="panel-collapse in active show" role="tabpanel" aria-labelledby="headingTwo_1" aria-expanded="false">
+                      <div class="panel-body">
+                        <div class="card">
+
+                          <div class="body pt-0">
+                            <div class="table-responsive">
+                              <table class="table table-hover table-striped" id="SupportTble">
+                                <thead>
+                                  <tr>
+                                    <th>Call Type</th>
+                                    <th>Call Status</th>
+                                    <th>Call Date</th>
+                                    <th>Call Result</th>
+                                    <th>Note 1</th>
+                                    <th>Note 2</th>
+                                    <th>Note 3</th>
+                                  </tr>
+                                </thead>
+                                <tbody></tbody>
+                              </table>
+                            </div>
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+                  <div class="panel panel-primary">
+                    <div class="panel-heading" role="tab" id="headingThree_1">
+                      <h4 class="panel-title">
+                        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion_1" href="#collapseThree_1" aria-expanded="false" aria-controls="collapseThree_1">
+                          <div class="header p-0 pl-2">
+                            <h2><strong>Tracking</strong></h2>
+                          </div>
+                        </a>
+                      </h4>
+                    </div>
+                    <div id="collapseThree_1" class="panel-collapse in active show" role="tabpanel" aria-labelledby="headingThree_1" aria-expanded="false">
+                      <div class="panel-body">
+
+                        <div class="card">
+
+                          <div class="body pt-0">
+                            <div class="table-responsive">
+                              <table class="table table-hover table-striped" id="trackingTable">
+                                <thead>
+                                  <tr>
+                                    <th>Date</th>
+                                    <th>Status Name</th>
+                                    <th>Reason</th>
+                                    <th>Recipient</th>
+                                    <th>Column1</th>
+                                  </tr>
+                                </thead>
+                                <tbody></tbody>
+                              </table>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
+
+          <div class="card">
+            <div class="header">
+              <h2><strong class="text-danger">New Complaint</strong></h2>
+            </div>
+            <div class="body pt-0">
+              <div class="row clearfix">
+                <div class="col-sm-6">
+                  <div class="row clearfix">
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <select class="form-control" id="Type">
+                          <option value="2">Request</option>
+                          <option value="3">Complaint</option>
+                          <option value="4">Other</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <select class="form-control show-tick comTypeS" id="ComType">
+                        <option value="1">Change delivery time</option>
+                        <option value="2">Change delivery location</option>
+                        <option value="3">Change consignee data</option>
+                        <option value="4">Other</option>
+                      </select>
+                    </div>
+                  </div>
+                  <input type="text" readonly="readonly" name="" id="Subject" class="form-control mt-2" value="" placeholder="Subject" />
+                  <div id="errMsgSub"></div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <textarea rows="3" id="compaintMSG" class="form-control no-resize" placeholder="Write Complaint"></textarea>
+                    <div id="errMsgCom"></div>
+                  </div>
+                </div>
+                <button type="button" id="AddComplain" class="btn btn-lg btn-primary btn-round waves-effect">Save</button>
+
+              </div>
+
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Jquery Core Js -->
+  <script src="assets/bundles/libscripts.bundle.js"></script> <!-- Lib Scripts Plugin Js -->
+  <script src="assets/bundles/vendorscripts.bundle.js"></script> <!-- Lib Scripts Plugin Js -->
+  <script src="assets/plugins/Cookies/cookies.min.js"></script>
+  <script src="assets/plugins/jquery-toast-plugin/src/jquery.toast.js"></script>
+  <script src="assets/plugins/jquery-datatable/jquery.dataTables.min.js"></script>
+
+  <script src="assets/bundles/mainscripts.bundle.js"></script>
+  <script src="assets/js/Main/main.js"></script>
+  <script src="assets/js/pages/tracking.js"></script>
+  <script src="assets/js/pages/ChangePassword.js"></script>
+  <script>$("#tgle").click();</script>
+</body>
+</html>

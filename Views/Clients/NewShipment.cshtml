@@ -1,0 +1,386 @@
+﻿
+@{
+  ViewBag.Title = "New Shipment";
+  Layout = "~/Views/Shared/ClientsLayout.cshtml";
+}
+
+@section CSS
+{
+  <link href="~/assets/libs/bootstrap3/css/bootstrap-theme.min.css" rel="stylesheet" />
+  <!-- Smart Wizard -->
+  <link href="~/assets/libs/smartwizard/css/smart_wizard.min.css" rel="stylesheet" />
+  <link href="~/assets/libs/smartwizard/css/smart_wizard_theme_arrows.min.css" rel="stylesheet" />
+  <link href="~/assets/libs/smartwizard/css/smart_wizard_theme_circles.min.css" rel="stylesheet" />
+  <link href="~/assets/libs/smartwizard/css/smart_wizard_theme_dots.min.css" rel="stylesheet" />
+  <!-- Select2 -->
+  <link href="~/assets/libs/select2/css/select2.min.css" rel="stylesheet" />
+}
+
+
+
+<section class="content-header">
+  <h1>
+    Clients
+    <small>New Shipment</small>
+  </h1>
+  <ol class="breadcrumb">
+    <li><a href="@Url.Action("Index", "Clients")"><i class="fa fa-dashboard"></i>Clients</a></li>
+    <li class="active">New Shipment</li>
+  </ol>
+</section>
+<section class="content">
+  <div class="box box-info">
+    <form id="PickupForm">
+      <!-- SmartWizard html -->
+      <div id="smartwizard">
+        <ul>
+          <li><a href="#step-1">Shipper Data</a></li>
+          <li><a href="#step-2">Consignee Data</a></li>
+          <li><a href="#step-3">Shipment Data</a></li>
+          <li><a href="#step-4">Notes</a></li>
+        </ul>
+
+        <div>
+          <div id="step-1" class="form-group">
+            <div id="form-step-0" role="form" data-toggle="validator" class="box-body">
+              <!-- FromCityID -->
+              <div class="form-group">
+
+                <label for="FromCityID" class="col-sm-2">From City:</label>
+
+                <div class="input-group col-sm-10">
+                  <div class="input-group-addon">
+                    <i class="fa fa-location-arrow fa-fw"></i>
+                  </div>
+                  <select required class="form-control select2" style="width: 100%;" id="FromCityID"></select>
+                </div>
+                <!-- /.input group -->
+              </div>
+              <!-- /.form group FromCityID-->
+              <!-- FromAddress -->
+              <div class="form-group">
+
+                <label for="FromAddress" class="col-sm-2">Pickup Address:</label>
+
+                <div class="input-group col-sm-10">
+                  <div class="input-group-addon">
+                    <i class="fa fa-map-marker fa-fw"></i>
+                  </div>
+                  <input required type="text" class="form-control" id="FromAddress">
+                </div>
+                <!-- /.input group -->
+              </div>
+              <!-- /.form group FromAddress-->
+              <!-- FromPhone: -->
+              <div class="form-group">
+
+                <label for="FromPhone" class="col-sm-2">Shipper Phone:</label>
+
+                <div class="input-group col-sm-10">
+                  <div class="input-group-addon">
+                    <i class="fa fa-phone fa-fw"></i>
+                  </div>
+                  <input required type="text" class="form-control" id="FromPhone">
+                </div>
+                <!-- /.input group -->
+              </div>
+              <!-- /.form group FromPhone-->
+              <!-- FromContactPerson -->
+              <div class="form-group">
+
+                <label for="FromContactPerson" class="col-sm-2">Contact Person:</label>
+
+                <div class="input-group col-sm-10">
+                  <div class="input-group-addon">
+                    <i class="fa fa-id-card-o fa-fw"></i>
+                  </div>
+                  <input required type="text" class="form-control" id="FromContactPerson">
+                </div>
+                <!-- /.input group -->
+              </div>
+              <!-- /.form group FromContactPerson-->
+
+
+            </div>
+          </div>
+          <div id="step-2" class="form-group">
+            <div id="form-step-1" role="form" data-toggle="validator" class="box-body">
+              <!-- ToCityID -->
+              <div class="form-group">
+
+                <label for="ToCityID" class="col-sm-2">To City:</label>
+
+                <div class="input-group col-sm-10">
+                  <div class="input-group-addon">
+                    <i class="fa fa-location-arrow fa-fw"></i>
+                  </div>
+                  <select required class="form-control select2" style="width: 100%;" id="ToCityID"></select>
+                </div>
+                <!-- /.input group -->
+              </div>
+              <!-- /.form group ToCityID-->
+              <!-- ToConsigneeName -->
+              <div class="form-group">
+
+                <label for="ToConsigneeName" class="col-sm-2">Consignee Name:</label>
+
+                <div class="input-group col-sm-10">
+                  <div class="input-group-addon">
+                    <i class="fa fa-user fa-fw"></i>
+                  </div>
+                  <input required type="text" class="form-control" id="ToConsigneeName">
+                </div>
+                <!-- /.input group -->
+              </div>
+              <!-- /.form group ToConsigneeName-->
+              <!-- ToAddress -->
+              <div class="form-group">
+
+                <label for="ToAddress" class="col-sm-2">Consignee Address:</label>
+
+                <div class="input-group col-sm-10">
+                  <div class="input-group-addon">
+                    <i class="fa fa-map-marker fa-fw"></i>
+                  </div>
+                  <input required type="text" class="form-control" id="ToAddress">
+                </div>
+                <!-- /.input group -->
+              </div>
+              <!-- /.form group ToAddress-->
+              <!-- ToPhone: -->
+              <div class="form-group">
+
+                <label for="ToPhone" class="col-sm-2">Consignee Phone:</label>
+
+                <div class="input-group col-sm-10">
+                  <div class="input-group-addon">
+                    <i class="fa fa-phone fa-fw"></i>
+                  </div>
+                  <input required type="text" class="form-control" id="ToPhone">
+                </div>
+                <!-- /.input group -->
+              </div>
+              <!-- /.form group ToPhone-->
+              <!-- ToMobile: -->
+              <div class="form-group">
+
+                <label for="ToMobile" class="col-sm-2">Consignee Mobile:</label>
+
+                <div class="input-group col-sm-10">
+                  <div class="input-group-addon">
+                    <i class="fa fa-mobile fa-fw"></i>
+                  </div>
+                  <input required type="text" class="form-control" id="ToMobile">
+                </div>
+                <!-- /.input group -->
+              </div>
+              <!-- /.form group ToMobile-->
+              <!-- ToRef: -->
+              <div class="form-group">
+
+                <label for="ToRef" class="col-sm-2">Ref No.:</label>
+
+                <div class="input-group col-sm-10">
+                  <div class="input-group-addon">
+                    <i class="fa fa-bars fa-fw"></i>
+                  </div>
+                  <input required type="text" class="form-control" id="ToRef">
+                </div>
+                <!-- /.input group -->
+              </div>
+              <!-- /.form group ToRef-->
+              <div class="form-group">
+
+                <label for="ToContactPerson" class="col-sm-2">Contact Person:</label>
+
+                <div class="input-group col-sm-10">
+                  <div class="input-group-addon">
+                    <i class="fa fa-id-card-o fa-fw"></i>
+                  </div>
+                  <input required type="text" class="form-control" id="ToContactPerson">
+                </div>
+                <!-- /.input group -->
+              </div>
+              <!-- /.form group ToContactPerson-->
+            </div>
+          </div>
+          <div id="step-3" class="form-group">
+            <div id="form-step-2" role="form" data-toggle="validator" class="box-body">
+              <!-- ProductID -->
+              <div class="form-group">
+
+                <label for="ProductID" class="col-sm-2">Product:</label>
+
+                <div class="input-group col-sm-10">
+                  <div class="input-group-addon">
+                    <i class="fa fa-product-hunt fa-fw"></i>
+                  </div>
+                  <select required class="form-control select2" style="width: 100%;" id="ProductID"></select>
+
+                </div>
+                <!-- /.input group -->
+              </div>
+              <!-- /.form group ProductID-->
+              <!-- COD -->
+              <div class="form-group">
+
+                <label for="COD" class="col-sm-2">COD:</label>
+
+                <div class="input-group col-sm-10">
+                  <div class="input-group-addon">
+                    <i class="fa fa-money fa-fw"></i>
+                  </div>
+                  <input required type="text" class="form-control" data-inputmask="'alias': 'decimal', 'rightAlign':false" data-mask id="COD">
+                </div>
+                <!-- /.input group -->
+              </div>
+              <!-- /.form group COD-->
+              <!-- Weight -->
+              <div class="form-group">
+
+                <label for="Weight" class="col-sm-2">Weight:</label>
+
+                <div class="input-group col-sm-10">
+                  <div class="input-group-addon">
+                    <i class="fa fa-balance-scale fa-fw"></i>
+                  </div>
+                  <input required type="text" class="form-control" data-inputmask="'alias': 'integer', 'rightAlign':false" data-mask id="Weight">
+                </div>
+                <!-- /.input group -->
+              </div>
+              <!-- /.form group Weight-->
+              <!-- PCs -->
+              <div class="form-group">
+
+                <label for="Pieces" class="col-sm-2">Pieces:</label>
+
+                <div class="input-group col-sm-10">
+                  <div class="input-group-addon">
+                    <i class="fa fa-puzzle-piece fa-fw"></i>
+                  </div>
+                  <input required type="text" class="form-control" data-inputmask="'alias': 'integer', 'rightAlign':false" data-mask id="Pieces">
+                </div>
+                <!-- /.input group -->
+              </div>
+              <!-- /.form group PCs-->
+              <!-- Contents -->
+              <div class="form-group">
+
+                <label for="Contents" class="col-sm-2">Contents:</label>
+
+                <div class="input-group col-sm-10">
+                  <div class="input-group-addon">
+                    <i class="fa fa-briefcase fa-fw"></i>
+                  </div>
+                  <input required type="text" class="form-control" id="Contents">
+                </div>
+                <!-- /.input group -->
+              </div>
+              <!-- /.form group Contents-->
+              <!-- Distance -->
+              <div class="form-group">
+                <label id="lblDistance" class="col-sm-6">Distance:</label>
+                <label id="lblDuration" class="col-sm-6">Duration:</label>
+              </div>
+              <!-- /.form group Distance-->
+            </div>
+          </div>
+          <div id="step-4" class="form-group">
+            <div id="form-step-3" role="form" data-toggle="validator" class="box-body">
+              <!-- SpecialInstuctions -->
+              <div class="form-group">
+
+                <label for="SpecialInstuctions" class="col-sm-2">Special Instuctions:</label>
+
+                <div class="input-group col-sm-10">
+                  <div class="input-group-addon">
+                    <i class="fa fa-sticky-note-o fa-fw"></i>
+                  </div>
+                  <input type="text" class="form-control" id="SpecialInstuctions">
+                </div>
+                <!-- /.input group -->
+              </div>
+              <!-- /.form group SpecialInstuctions-->
+              <!-- Data1 -->
+              <div class="form-group">
+
+                <label for="Data1" class="col-sm-2">Data1:</label>
+
+                <div class="input-group col-sm-10">
+                  <div class="input-group-addon">
+                    <i class="fa fa-sticky-note-o fa-fw"></i>
+                  </div>
+                  <input type="text" class="form-control" id="Data1">
+                </div>
+                <!-- /.input group -->
+              </div>
+              <!-- /.form group Data1-->
+              <!-- Data2 -->
+              <div class="form-group">
+
+                <label for="Data2" class="col-sm-2">Data2:</label>
+
+                <div class="input-group col-sm-10">
+                  <div class="input-group-addon">
+                    <i class="fa fa-sticky-note-o fa-fw"></i>
+                  </div>
+                  <input type="text" class="form-control" id="Data2">
+                </div>
+                <!-- /.input group -->
+              </div>
+              <!-- /.form group Data2-->
+              <!-- Data3 -->
+              <div class="form-group">
+
+                <label for="Data3" class="col-sm-2">Data3:</label>
+
+                <div class="input-group col-sm-10">
+                  <div class="input-group-addon">
+                    <i class="fa fa-sticky-note-o fa-fw"></i>
+                  </div>
+                  <input type="text" class="form-control" id="Data3">
+                </div>
+                <!-- /.input group -->
+              </div>
+              <!-- /.form group Data3-->
+              <!-- Data4 -->
+              <div class="form-group">
+
+                <label for="Data4" class="col-sm-2">Data4:</label>
+
+                <div class="input-group col-sm-10">
+                  <div class="input-group-addon">
+                    <i class="fa fa-sticky-note-o fa-fw"></i>
+                  </div>
+                  <input type="text" class="form-control" id="Data4">
+                </div>
+                <!-- /.input group -->
+              </div>
+              <!-- /.form group Data4-->
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </form>
+  </div>
+</section>
+
+
+
+@section Scripts
+{
+  <!-- Page Scripts -->
+  <script src="~/assets/libs/bootstrap-validator/validator.min.js"></script>
+  <script src="~/assets/libs/smartwizard/js/jquery.smartWizard.min.js"></script>
+  <!-- InputMask -->
+  <script src="~/assets/libs/input-mask/jquery.inputmask.bundle.min.js"></script>
+  <!-- Select2 -->
+  <script src="~/assets/libs/select2/js/select2.full.min.js"></script>
+  <script src="~/assets/libs/moment/moment.min.js"></script>
+  <!-- StimulSoft -->
+  <script src="~/assets/libs/stimulsoft/stimulsoft.reports.js"></script>
+  <script src="~/assets/js/ClientUsers/NewShipment.js"></script>
+}
+

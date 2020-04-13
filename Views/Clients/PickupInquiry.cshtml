@@ -1,0 +1,79 @@
+﻿
+@{
+  ViewBag.Title = "Pickup Inquiry";
+  Layout = "~/Views/Shared/ClientsLayout.cshtml";
+}
+
+@section CSS
+{
+  <!-- DataTables -->
+<link href="~/assets/libs/datatables_bootstrap3/datatables.min.css" rel="stylesheet" />
+}
+
+<!--Crumb Bar-->
+<section class="content-header">
+  <h1>
+    Clients
+    <small>Pickup Inquiry</small>
+  </h1>
+  <ol class="breadcrumb">
+    <li><a href="@Url.Action("Index", "Clients")"><i class="fa fa-dashboard"></i>Clients</a></li>
+    <li class="active">Pickup Inquiry</li>
+  </ol>
+</section>
+
+<section class="content">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="box info">
+        <div class="box-header">
+          <h3 class="box-title">Active Pickups</h3>
+        </div>
+        <!-- /.box-header -->
+        <div id="dvTable" class="box-body">
+          <table id="example1" class="table table-bordered table-striped table-hover">
+            @*<thead>
+              <tr>
+                <th>Pickup ID</th>
+                <th>Number Of AWBs</th>
+                <th>Pickup Address</th>
+                <th>Phone</th>
+                <th>Contact Person</th>
+                <th>Pickup Date</th>
+                <th>Status</th>
+                <th>City</th>
+                <th>Product</th>
+                <th>Actual AWBs</th>
+                <th>Notes</th>
+              </tr>
+            </thead>
+            <tfoot>
+              <tr>
+                <th>Pickup ID</th>
+                <th>Number Of AWBs</th>
+                <th>Pickup Address</th>
+                <th>Phone</th>
+                <th>Contact Person</th>
+                <th>Pickup Date</th>
+                <th>Status</th>
+                <th>City</th>
+                <th>Product</th>
+                <th>Actual AWBs</th>
+                <th>Notes</th>
+              </tr>
+            </tfoot>*@
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+@section Scripts
+{
+  <!-- Page Scripts -->
+<script src="~/assets/libs/datatables_bootstrap3/datatables.min.js"></script>
+<script src="~/assets/js/ClientUsers/PickupInquiry.js"></script>
+}
+

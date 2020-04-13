@@ -1,0 +1,62 @@
+﻿
+@{
+  ViewBag.Title = "Request Driver";
+  Layout = "~/Views/Shared/ClientsLayout.cshtml";
+}
+
+@section CSS
+{
+}
+
+
+
+<section class="content-header">
+  <h1>
+    Clients
+    <small>Request Driver</small>
+  </h1>
+  @*<ol class="breadcrumb">
+      <li><a href="@Url.Action("Index", "Clients")"><i class="fa fa-dashboard"></i>Clients</a></li>
+      <li class="active">Request Driver</li>
+    </ol>*@
+</section>
+<section class="content container-fluid">
+  <div class="row">
+    <div class="input-group input-group-sm">
+      <input type="text" id="txtSearch" class="form-control">
+      <span class="input-group-btn">
+        <button type="button" id="btnSearch" onclick="SearchAddress()" class="btn btn-info btn-flat">Go!</button>
+      </span>
+    </div>
+
+  </div>
+  <div class="row">
+    <div class="box box-default">
+      <div class="box-header with-border">
+        <div id="map" style="height:400px"></div>
+      </div>
+    </div>
+
+  </div>
+
+  <div id="infowindow-content">
+    <img src="" width="16" height="16" id="place-icon">
+    <span id="place-name" class="title"></span><br>
+    <span id="place-address"></span>
+  </div>
+
+</section>
+
+
+@section Scripts
+{
+  <!-- Page Scripts -->
+  <script src="~/assets/js/ClientUsers/RequestDriver.js"></script>
+  <script async defer
+          src="https://maps.googleapis.com/maps/api/js?key=AAAAAAAAAAAAAAA&callback=initMap&libraries=places">
+  </script>
+}
+
+
+
+
